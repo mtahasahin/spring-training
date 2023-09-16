@@ -4,13 +4,11 @@ import com.trendyol.bootcamp.spring.ch04.SimpleDate;
 import com.trendyol.bootcamp.spring.ch04.domain.AccountContribution;
 import com.trendyol.bootcamp.spring.ch04.domain.Dining;
 import com.trendyol.bootcamp.spring.ch04.domain.RewardConfirmation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * JDBC implementation of a reward repository that
@@ -24,7 +22,7 @@ import java.sql.SQLException;
  * - Inject dataSource by annotating setDataSource() method
  *   with @Autowired.
  */
-
+@Repository
 public class JdbcRewardRepository implements RewardRepository {
 
 	private DataSource dataSource;
@@ -33,6 +31,7 @@ public class JdbcRewardRepository implements RewardRepository {
 	 * Sets the data source this repository will use to insert rewards.
 	 * @param dataSource the data source
 	 */
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}

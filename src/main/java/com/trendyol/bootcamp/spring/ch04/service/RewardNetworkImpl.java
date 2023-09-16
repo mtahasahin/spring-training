@@ -1,14 +1,10 @@
 package com.trendyol.bootcamp.spring.ch04.service;
 
-import com.trendyol.bootcamp.spring.ch04.domain.Account;
-import com.trendyol.bootcamp.spring.ch04.domain.AccountContribution;
-import com.trendyol.bootcamp.spring.ch04.domain.Dining;
-import com.trendyol.bootcamp.spring.ch04.domain.MonetaryAmount;
-import com.trendyol.bootcamp.spring.ch04.domain.Restaurant;
-import com.trendyol.bootcamp.spring.ch04.domain.RewardConfirmation;
+import com.trendyol.bootcamp.spring.ch04.domain.*;
 import com.trendyol.bootcamp.spring.ch04.repository.account.AccountRepository;
 import com.trendyol.bootcamp.spring.ch04.repository.restaurant.RestaurantRepository;
 import com.trendyol.bootcamp.spring.ch04.repository.reward.RewardRepository;
+import org.springframework.stereotype.Service;
 
 /**
  * Rewards an Account for Dining at a Restaurant.
@@ -29,6 +25,7 @@ import com.trendyol.bootcamp.spring.ch04.repository.reward.RewardRepository;
  *   injection or constructor injection.
  */
 
+	@Service
 public class RewardNetworkImpl implements RewardNetwork {
 
 	private AccountRepository accountRepository;
@@ -45,7 +42,7 @@ public class RewardNetworkImpl implements RewardNetwork {
 	 */
 	
 	public RewardNetworkImpl(AccountRepository accountRepository, RestaurantRepository restaurantRepository,
-			RewardRepository rewardRepository) {
+                             RewardRepository rewardRepository) {
 		this.accountRepository = accountRepository;
 		this.restaurantRepository = restaurantRepository;
 		this.rewardRepository = rewardRepository;
